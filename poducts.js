@@ -23,7 +23,7 @@ underlineStyle.onclick = function () {
 
 let products = [];
  products =
-   JSON.parse(localStorage.getItem("productsList")).length > 0
+   JSON.parse(localStorage.getItem("productsList")) === null
      ? (products = [
          {
            title: "Мясо",

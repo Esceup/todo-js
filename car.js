@@ -24,7 +24,7 @@ underlineStyle.onclick = function () {
 let cars = [];
 
 cars =
-  JSON.parse(localStorage.getItem("carsList")).length > 0
+  JSON.parse(localStorage.getItem("carsList")) === null
     ? (cars = [
         {
           title: "Помыть машину",
@@ -54,7 +54,8 @@ cars =
           italic: false,
           underline: false,
         },
-      ]) : JSON.parse(localStorage.getItem("carsList"));
+      ])
+    : JSON.parse(localStorage.getItem("carsList"));
  
 // let cars = JSON.parse(localStorage.getItem("todosMe")) || [
 //   {

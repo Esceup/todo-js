@@ -26,8 +26,8 @@ let notes = [];
 
 
 notes =
-  JSON.parse(localStorage.getItem("todosMe")).length > 0
-    ? JSON.parse(localStorage.getItem("todosMe"))
+  JSON.parse(localStorage.getItem("mainList")).length > 0
+    ? JSON.parse(localStorage.getItem("mainList"))
     : (notes = [
         {
           title: "500(тариф)",
@@ -143,7 +143,7 @@ notes =
           underline: false,
         },
       ]);
-// let notes = JSON.parse(localStorage.getItem("todosMe")) || [
+// let notes = JSON.parse(localStorage.getItem("mainList")) || [
 //   {
 //     title: "500(тариф)",
 //     completed: false,
@@ -164,7 +164,7 @@ notes =
 // ];
 
 
-const saveToLocalStorage = (key = "todosMe") => {
+const saveToLocalStorage = (key = "mainList") => {
   localStorage.setItem(key, JSON.stringify(notes));
 };
 saveToLocalStorage();

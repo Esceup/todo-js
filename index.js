@@ -26,9 +26,8 @@ let notes = [];
 
 
 notes =
-  JSON.parse(localStorage.getItem("mainList")).length > 0
-    ? JSON.parse(localStorage.getItem("mainList"))
-    : (notes = [
+  JSON.parse(localStorage.getItem("mainList")) === null
+    ?  (notes = [
         {
           title: "500(тариф)",
           completed: false,
@@ -142,7 +141,9 @@ notes =
           italic: false,
           underline: false,
         },
-      ]);
+      ])
+     : JSON.parse(localStorage.getItem("mainList"))
+    
 // let notes = JSON.parse(localStorage.getItem("mainList")) || [
 //   {
 //     title: "500(тариф)",

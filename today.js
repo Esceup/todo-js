@@ -24,8 +24,7 @@ underlineStyle.onclick = function () {
 let todays = [];
 todays =
   JSON.parse(localStorage.getItem("todaysList")).length > 0
-    ? JSON.parse(localStorage.getItem("todaysList"))
-    : (todays = [
+    ? (todays = [
         {
           title: "Осмотр машины",
           completed: false,
@@ -55,7 +54,8 @@ todays =
           italic: false,
           underline: false,
         },
-      ]);
+      ]) : JSON.parse(localStorage.getItem("todaysList"));
+   
 
 // let products = JSON.parse(localStorage.getItem("productsList")) || [
 //   {

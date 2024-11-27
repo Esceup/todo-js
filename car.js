@@ -25,8 +25,7 @@ let cars = [];
 
 cars =
   JSON.parse(localStorage.getItem("carsList")).length > 0
-    ? JSON.parse(localStorage.getItem("carsList"))
-    : (cars = [
+    ? (cars = [
         {
           title: "Помыть машину",
           completed: false,
@@ -55,7 +54,8 @@ cars =
           italic: false,
           underline: false,
         },
-      ]);
+      ]) : JSON.parse(localStorage.getItem("carsList"));
+ 
 // let cars = JSON.parse(localStorage.getItem("todosMe")) || [
 //   {
 //     title: "500(тариф)",

@@ -23,74 +23,75 @@ underlineStyle.onclick = function () {
 
 let products = [];
  products =
-  JSON.parse(localStorage.getItem("productsList")).length > 0
-    ? JSON.parse(localStorage.getItem("productsList"))
-    : products = [
-        {
-          title: "Мясо",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
+   JSON.parse(localStorage.getItem("productsList")).length > 0
+     ? (products = [
+         {
+           title: "Мясо",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
 
-        {
-          title: "Рыба",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Сыр",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Яйца",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Перекус",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Мясной рулет",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Фрукты",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Йогурты",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-        {
-          title: "Творог",
-          completed: false,
-          bold: false,
-          italic: false,
-          underline: false,
-        },
-      ];
+         {
+           title: "Рыба",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Сыр",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Яйца",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Перекус",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Мясной рулет",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Фрукты",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Йогурты",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+         {
+           title: "Творог",
+           completed: false,
+           bold: false,
+           italic: false,
+           underline: false,
+         },
+       ])
+     : JSON.parse(localStorage.getItem("productsList"));
+     
 
 // let products = JSON.parse(localStorage.getItem("productsList")) || [
 //   {

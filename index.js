@@ -155,10 +155,13 @@ function refresh(arr) {
 
   let res = 0;
   for (let i = 0; i < arr.length; i++) {
-    res += Number(arr[i].title.replace(/[^.\d]+/g,"").replace( /^([^\.]*\.)|\./g, '$1' ));
-    numberOfRubles.innerHTML = `В копилку: ${res} рублей`;
-    console.log(+res);
+    res += Number(
+      arr[i].title.replace(/[^.\d]+/g, "").replace(/^([^\.]*\.)|\./g, "$1")
+    );
+    numberOfRubles.innerHTML = `В копилку: ${salary.innerHTML - res} рублей`;
+    console.log(salary.innerHTML - res);
   }
+  res = salary.innerHTML - res
 }
 refresh(notes);
 

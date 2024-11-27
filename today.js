@@ -10,6 +10,8 @@ const countMatches = document.getElementById("countMatches");
 const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
+let numberOfRubles = document.getElementById("numberOfRubles");
+let salary = document.getElementById("salary");
 
 boldStyle.onclick = function () {
   boldStyle.classList.toggle("active");
@@ -20,6 +22,8 @@ italicStyle.onclick = function () {
 underlineStyle.onclick = function () {
   underlineStyle.classList.toggle("active");
 };
+
+
 
 let todays = [];
 todays =

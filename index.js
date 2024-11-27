@@ -10,6 +10,7 @@ const countMatches = document.getElementById("countMatches");
 const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
+let numberOfRubles = document.getElementById("numberOfRubles");
 
 
 boldStyle.onclick = function() {
@@ -22,7 +23,11 @@ underlineStyle.onclick = function () {
   underlineStyle.classList.toggle("active");
 };
 
+
+
+
 let notes = [];
+
 
 
 notes =
@@ -143,27 +148,19 @@ notes =
         },
       ])
      : JSON.parse(localStorage.getItem("mainList"))
-    
-// let notes = JSON.parse(localStorage.getItem("mainList")) || [
-//   {
-//     title: "500(тариф)",
-//     completed: false,
-//     bold: false,
-//     italic: false,
-//     underline: false,
-//   },
 
-//   {
-//     title: "1000(тариф + стрижка)",
-//     completed: false,
-//     bold: false,
-//     italic: false,
-//     underline: false,
-//   },
 
-  
-// ];
+function refresh(arr) {
+  numberOfRubles.innerHTML = "";
 
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    res += Number(arr[i].title.replace(/[^.\d]+/g,"").replace( /^([^\.]*\.)|\./g, '$1' ));
+    numberOfRubles.innerHTML = `В копилку: ${res} рублей`;
+    console.log(+res);
+  }
+}
+refresh(notes);
 
 const saveToLocalStorage = (key = "mainList") => {
   localStorage.setItem(key, JSON.stringify(notes));
@@ -227,6 +224,7 @@ btnAddTask.onclick = function() {
 
         notes.push(newNote);
 
+        refresh(notes);
         allCountTask();
         countCompletedTask();
         sortNotesToCompleted();
@@ -261,21 +259,26 @@ searchInput.addEventListener("input", () => {
 
 deleteAll.onclick = function () {
   notes.length = 0;
+
+  refresh(notes);
   allCountTask();
   countCompletedTask();
   saveToLocalStorage();
   render(notes);
-  console.log(1)
+  refresh(notes);
+
 };
 
 deleteCompletedAll.onclick = function () {
     notes = notes.filter((item) => item.completed === !true)
 
+    refresh(notes);
     allCountTask();
     countCompletedTask();
     sortNotesToCompleted();
     saveToLocalStorage();
     render(notes);
+   
   
 };
 
@@ -320,11 +323,13 @@ list.onclick = function (event) {
         
         
       }
+      refresh(notes);
       allCountTask();
       countCompletedTask();
       sortNotesToCompleted();
       saveToLocalStorage();
       render(notes);
+      
   }
 }
 

@@ -2,6 +2,8 @@ const btnAddTask = document.getElementById("create");
 const valueElement = document.getElementById("title");
 const list = document.getElementById("list");
 const deleteCompletedAll = document.getElementById("deleteAllCompleted");
+const onlyCompleted = document.getElementById("onlyCompleted");
+const allTaskList = document.getElementById("allTaskList");
 const deleteAll = document.getElementById("deleteAll");
 const searchInput = document.getElementById("search");
 const completedTask = document.getElementById("completedTask");
@@ -10,7 +12,10 @@ const countMatches = document.getElementById("countMatches");
 const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
+const deleteAllStyle = document.getElementById("deleteAllStyle");
 let numberOfRubles = document.getElementById("numberOfRubles");
+
+
 
 
 boldStyle.onclick = function() {
@@ -22,6 +27,19 @@ italicStyle.onclick = function () {
 underlineStyle.onclick = function () {
   underlineStyle.classList.toggle("active");
 };
+
+deleteAllStyle.onclick = function () {
+  notes.forEach((el) => {
+    el.bold = false
+    el.italic = false
+    el.underline = false
+  }); 
+  saveToLocalStorage();
+  render(notes)
+}
+  
+  // document.getElementsByClassName("valueItem").classList.remove("bold");
+
 
 
 
@@ -159,7 +177,7 @@ function refresh(arr) {
       arr[i].title.replace(/[^.\d]+/g, "").replace(/^([^\.]*\.)|\./g, "$1")
     );
     numberOfRubles.innerHTML = `В копилку: ${salary.innerHTML - res} рублей`;
-    console.log(salary.innerHTML - res);
+  
   }
   res = salary.innerHTML - res
 }
@@ -193,22 +211,22 @@ function sortNotesToCompleted() {
 }
 sortNotesToCompleted();
 
-function allCountTask() {
-  allTask.textContent = `Всего задач: ${notes.length}`;
+function allCountTask(list) {
+  allTask.textContent = `Всего задач: ${list.length}`;
 }
-allCountTask();
+allCountTask(notes);
 
 
-function countCompletedTask() {
+function countCompletedTask(list) {
   let count = 0;
-  for (let i = 0; i < notes.length; i++) {
-    if (notes[i].completed === true) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].completed === true) {
       count += 1;
     }
   }
   completedTask.textContent = `Выполненных задач: ${count}`;
 }
-countCompletedTask();
+countCompletedTask(notes);
 
 
 
@@ -228,8 +246,8 @@ btnAddTask.onclick = function() {
         notes.push(newNote);
 
         refresh(notes);
-        allCountTask();
-        countCompletedTask();
+        allCountTask(notes);
+        countCompletedTask(notes);
         sortNotesToCompleted();
         saveToLocalStorage();
         render(notes);
@@ -264,26 +282,38 @@ deleteAll.onclick = function () {
   notes.length = 0;
 
   refresh(notes);
-  allCountTask();
-  countCompletedTask();
+  allCountTask(notes);
+  countCompletedTask(notes);
   saveToLocalStorage();
   render(notes);
   refresh(notes);
-
 };
 
 deleteCompletedAll.onclick = function () {
     notes = notes.filter((item) => item.completed === !true)
 
     refresh(notes);
-    allCountTask();
-    countCompletedTask();
+    allCountTask(notes);
+    countCompletedTask(notes);
     sortNotesToCompleted();
     saveToLocalStorage();
     render(notes);
-   
-  
 };
+
+onlyCompleted.onclick = function () {
+  let notesCompleted  = notes.filter((item) => item.completed === true);
+  allCountTask(notesCompleted);
+  countCompletedTask(notesCompleted);
+  render(notesCompleted);
+};
+
+allTaskList.onclick = function () {
+  allCountTask(notes);
+  countCompletedTask(notes);
+  render(notes);
+};
+
+
 
 list.onclick = function (event) {
    
@@ -327,8 +357,8 @@ list.onclick = function (event) {
         
       }
       refresh(notes);
-      allCountTask();
-      countCompletedTask();
+      allCountTask(notes);
+      countCompletedTask(notes);
       sortNotesToCompleted();
       saveToLocalStorage();
       render(notes);
@@ -341,9 +371,11 @@ function getItemTask(note, index) {
      <li
           class="list-group-item ${
             note.completed ? "taskCompleted" : ""
-          } d-flex justify-content-between align-items-center"
+          } d-flex  align-items-center"
         >
+        <span class="btn-padding btn btn-small btn-toggle" data-index="${index}" data-type="toggle">O</span>
           <div class="valueItem
+          
             ${note.completed ? "text-decoration-line-through" : ""} 
             ${note.bold ? "bold" : ""} ${note.italic ? "italic" : ""}
             ${note.underline ? "underline" : ""}
@@ -351,14 +383,12 @@ function getItemTask(note, index) {
             ${note.title}
           </div>
           
-          <span>
+          <span class="opacity-05 d-flex">
            <span class="btn btn-edit btn-small" >
            <i class="fa-solid fa-pencil" data-index="${index}" data-type="edit"></i>
           </span>
-            <span class="btn-padding btn btn-small btn-${
-              note.completed ? "success" : "warning"
-            }" data-index="${index}" data-type="toggle">&check;</span>
-            <span class="btn-padding btn btn-small btn-danger" data-index="${index}" data-type="remove">&times;</span>
+            
+            <span class="btn-padding btn btn-remove" data-index="${index}" data-type="remove">&times;</span>
           </span>
         </li>
     `;

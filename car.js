@@ -11,6 +11,7 @@ const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
 
+
 boldStyle.onclick = function () {
   boldStyle.classList.toggle("active");
 };
@@ -80,6 +81,8 @@ const saveToLocalStorage = (key = "carsList") => {
   localStorage.setItem(key, JSON.stringify(cars));
 };
 saveToLocalStorage();
+
+
 
 function render(arr) {
   list.innerHTML = "";

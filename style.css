@@ -16,11 +16,20 @@ body {
 .btn-checked, .btn-delete {
     padding: 1px 5px;
 }
+.btnListRender {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.btnListRender .btn {
+    color: #cecece
+}
 .bg-green {
     background-color: #d1ffcc;
 }
-.btnDeleteCompletedAll, .btnDeleteAll {
-    border: 1px solid #dee2e6;
+.container .btnDeleteCompletedAll, .btnDeleteAll {
+    color:#cecece;
+    /* border: 1px solid #dee2e6; */
 }
 .btnDeleteCompletedAll,
 .btnDeleteAll:active 
@@ -31,14 +40,14 @@ body {
 .btnDeleteCompletedAll.show,
 .btnDeleteCompletedAll:first-child:active,
 :not(.btnDeleteCompletedAll-check)+.btnDeleteCompletedAll:active{
-    color: #000;
+    /* color: #000; */
     background-color:#fff;
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
 }
 .btnDeleteCompletedAll:hover {
-    color: #000;
+    /* color: #000; */
     background-color: #f1f1f1;
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
 }
 .btnDeleteAll:checked+.btnDeleteAll,
 .btnDeleteAll.active,
@@ -56,9 +65,7 @@ body {
 }
 
 
-.btnDeleteCompletedAll {
-    margin-right: auto;
-}
+
 i {
     width: 0;
     margin-right: 16px;
@@ -130,19 +137,44 @@ i {
     border: 1px solid #212529;
 }
 .valueItem {
+    margin-right: auto;
+    width: 75%;
+    overflow: hidden;
     cursor: pointer;
 }
 .btnBoldStyle {
-    border: 1px solid;
+    color: #cecece;
+    border: 1px solid #cecece;
     margin-right: 10px;
     padding: 2px 7px 2px 9px;
 }
 .btnBoldStyle:hover {
     border: 1px solid;
 }
-.btnUnderlineStyle {
-    border: 1px solid;
+.btn-toggle {
+    color:#cecece;
     margin-right: 10px;
+}
+.btn-remove{
+    /* position: relative; */
+    /* top: 0px; */
+    font-size: 31px;
+    height: 26px;
+    /* padding-bottom: 24px; */
+    display: flex;
+    align-items: center;
+}
+.btn-remove:hover, .btn-remove:active, .btn-remove:focus-visible {
+    border-color: #fff;
+}
+.deleteAllStyle {
+    color: #cecece
+}
+
+.btnUnderlineStyle {
+    color: #cecece;
+    border: 1px solid #cecece;
+    margin-right: auto;
     padding: 2px 7px 2px 9px;
 }
 
@@ -155,8 +187,12 @@ i {
 .styleBlock {
     padding: 3px 0px;
     margin-bottom: 10px;
+    
     /* border-bottom: 1px solid;
     border-top: 1px solid; */
+}
+.styleBlock.active {
+    opacity: 1;
 }
 .valueBlock {
     width: 75%;
@@ -241,43 +277,52 @@ img {
     margin: auto;
 }
 h1 {
-    color: #000
+    color: #000;
+    opacity: 0.5;
 }
 .inpAddTask {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 } 
-
+.opacity-05 {
+    opacity: 0.5;
+}
 
 .btnAddTask {
-    background-color: #6d6d6d;
-    color: #fff;
+    background-color: #ffffff;
+    color: #cecece;
+    border: 1px solid #cecece;
+    border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 .btnAddTask:hover {
-    color:#fff;
-    background-color: #bdbdbd;
-    border-color: #00afee;
+    border: 1px solid #cecece;
+    border-left: none;
 }
 .btnAddTask:focus {
-    border-color: #86b7fe;
+    border-color: #cecece;
 }
 .completedTask {
     color: #000;
+    opacity: 0.5;
 }
 .allTask {
     color:#000;
     margin-right: auto;
+    opacity: 0.5;
+}
+.btn-fz {
+    font-size: 13px;
 }
 .list-group-item {
     padding: 1px 0 3px 3px;
 }
 .list-group-flush>.list-group-item:last-child {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #aeaeae;
 }
 .list-group-flush>.list-group-item:first-child {
-    border-top: 1px solid #000;
+    border-top: 1px solid #aeaeae;
 }
 .list-group p {
     color:#000
@@ -285,7 +330,12 @@ h1 {
 .btn-padding {
     padding: 0 4px;
 }
-
+.numberOfRyblesBlock {
+    display: flex;
+}
+.numberOfRubles {
+    margin-right: auto;
+}
 @media(max-width: 992px) {
     .numberOfRyblesBlock {
             display: flex;
@@ -293,7 +343,7 @@ h1 {
             z-index: 10;
             bottom: 43px;
             background: #ffffff;
-            padding: 10px;
+            padding: 5px;
             margin-left: -15px;
             width: 100%;
             border-top: 1px solid #cecece;
@@ -302,10 +352,13 @@ h1 {
         width: 50px;
         margin-left: 10px;
     }
-    
+    .fz-13 {
+        font-size: 13px;
+    }
     .numberOfRubles {
         margin-right: auto;
         color:#000;
+        font-size: 13px;
     }
     body {
             background-color: #fff;

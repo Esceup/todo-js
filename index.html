@@ -30,11 +30,8 @@
     <a class="linkToMom" href="mom.html">Заметки мамы</a> -->
     <div class="row">
       <div class="col-lg-3 col-sm-12 sidebarRight">
-        <img src="./Time.svg" alt="Logo">
-          <div class="numberOfRyblesBlock">
-            <div class="numberOfRubles" id="numberOfRubles">123</div>
-            <span>З/П:</span><span class="salary"  id="salary">125000</span>
-          </div>
+     
+          
           
           <ul>
             
@@ -54,7 +51,7 @@
           
       </div>
       <div class="col-lg-9 col-sm-12 mainBlock">
-             <h1>Общие задачи</h1>
+             <h1>Ежемесячные траты</h1>
      
       
       <div class="d-flex">
@@ -79,6 +76,10 @@
         <button id="underlineStyle" class="btn btnUnderlineStyle">
         <i class="fa-solid fa-underline"></i>
         </button>
+         <button  id="deleteAllStyle" class="btn deleteAllStyle">
+          Удалить все стили
+        </button>
+        
       </div>
        <input
           type="text"
@@ -87,7 +88,21 @@
           id="search"
         />
         <p id="countMatches" class="countMatches"></p>
-      
+     
+       <div class="btnListRender" >
+        <button class="btn  btn-fz mb-2" id="allTaskList">
+          All
+        </button>
+        <button class="btn btnOnlyCompleted btn-fz mb-2" id="onlyCompleted">
+          Completed
+        </button>
+          <button class="btn btnDeleteCompletedAll btn-fz mb-2" id="deleteAllCompleted">
+          Del Completed 
+        </button>
+        <button class="btn btnDeleteAll btn-fz mb-2" id="deleteAll">
+          Del All 
+        </button>
+       </div>
       
 
       <ul class="list-group list-group-flush" id="list">
@@ -101,7 +116,7 @@
           </span>
         </li> -->
       </ul>
-      <div class="d-flex mb-3 mt-2" >
+      <!-- <div class="d-flex mb-3 mt-2" >
         <div id="allTask" class="allTask">0</div>
         <div id="completedTask" class="completedTask ">0</div>
       </div>
@@ -112,7 +127,16 @@
         <button class="btn btnDeleteAll  mb-2" id="deleteAll">
           Удалить всё 
         </button>
-       </div>
+       </div> -->
+        <div class="d-flex mb-3 mt-2" >
+        <div id="allTask" class="allTask">0</div>
+        <div id="completedTask" class="completedTask ">0</div>
+      </div>
+       <div class="numberOfRyblesBlock">
+        
+            <div class="numberOfRubles" id="numberOfRubles">123</div>
+            <span class="fz-13">З/П:</span><span class="salary fz-13"  id="salary">125000</span>
+          </div>
       </div>
     </div>
    

@@ -10,8 +10,8 @@ const countMatches = document.getElementById("countMatches");
 const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
-let numberOfRubles = document.getElementById("numberOfRubles");
-let salary = document.getElementById("salary");
+
+
 
 boldStyle.onclick = function () {
   boldStyle.classList.toggle("active");
@@ -85,6 +85,8 @@ const saveToLocalStorage = (key = "todaysList") => {
   localStorage.setItem(key, JSON.stringify(todays));
 };
 saveToLocalStorage();
+
+
 
 function render(arr) {
   list.innerHTML = "";

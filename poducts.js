@@ -11,6 +11,7 @@ const boldStyle = document.getElementById("boldStyle");
 const italicStyle = document.getElementById("italicStyle");
 const underlineStyle = document.getElementById("underlineStyle");
 
+
 boldStyle.onclick = function () {
   boldStyle.classList.toggle("active");
 };
@@ -112,10 +113,16 @@ let products = [];
 
 // ];
 
+
+
+
 const saveToLocalStorage = (key = "productsList") => {
   localStorage.setItem(key, JSON.stringify(products));
 };
 saveToLocalStorage();
+
+
+
 
 function render(arr) {
   list.innerHTML = "";

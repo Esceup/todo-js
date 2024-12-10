@@ -173,9 +173,7 @@ function refresh(arr) {
 
   let res = 0;
   for (let i = 0; i < arr.length; i++) {
-    res += Number(
-      arr[i].title.replace(/[^.\d]+/g, "").replace(/^([^\.]*\.)|\./g, "$1")
-    );
+    res += Number(arr[i].title.substr(0, 5).replace(/[^.\d]+/g, "").replace(/^([^\.]*\.)|\./g, "$1"));
     numberOfRubles.innerHTML = `В копилку: ${salary.innerHTML - res} рублей`;
   
   }
